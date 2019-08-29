@@ -62,7 +62,7 @@ Tokens
         HTTP/1.1 200 OK
         Content-Type: application/json
 
-    :query token: ``JWT string`` used for authentication.
+    :query token: ``JWT`` used for authentication.
 
 
 Campaigns
@@ -130,7 +130,7 @@ Campaigns
             "120330000039825413"
         ]
 
-    :query token: ``JWT string`` used for authentication.
+    :query token: ``JWT`` used for authentication.
 
 
 Ad Sets

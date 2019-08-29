@@ -6,7 +6,7 @@ This document introduces and explains the use of Facebook API for creating and m
 Introduction
 ^^^^^^^^^^^^
 
-Facebook Marketing API for **ICN** provides an array of endpoints to create and manage campaigns on Facebook. Every endpoint requires a ``JSON Web Token`` for authentication. This token can be generated via ``/token`` endpoint and requires ``username`` and ``password hash`` of a user. All ``GET`` requests require ``token`` parameter to be passed as part of the ``URL`` whereas all ``POST`` requests require ``token`` to be passed as a ``form parameter``. Over time, more endpoints will be added to offer more functionality. With that in mind, let's have a look at the endpoints the API provides at this point.
+Facebook Marketing API for **ICN** provides an array of endpoints to create and manage campaigns on Facebook. Every endpoint requires a ``JSON Web Token`` for authentication. This token can be generated via ``/token`` endpoint and requires ``username`` and ``password hash`` of a user. All ``GET`` requests require ``token`` parameter to be passed as part of the ``url`` whereas all ``POST`` requests require ``token`` to be passed as a ``form parameter``. Overtime, more endpoints will be added to offer more functionality. With that in mind, let's have a look at the endpoints the API provides at this point.
 
 
 API Endpoints

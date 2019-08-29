@@ -17,7 +17,7 @@ Tokens
 
 .. http:post:: /token
 
-    Generates a ``JSON Web Token`` that is used for authentication when making calls to the other endpoints of the API. This token expires after ``1 hour``. Use the ``/token/verify`` to verify the validity of a token.
+    Generates a ``JSON Web Token`` that is used for authentication when making calls to the other endpoints of the API. This token expires after ``1 hour``. Use the ``/token/verify`` endpoint to verify the validity of a token.
 
     :reqheader Content-Type: application/x-www-form-urlencoded
     :form username: ``Username`` of the account to authenticate against.
@@ -99,8 +99,50 @@ Campaigns
             "id": "120330000039963113"
         }
 
-
 .. http:get:: /campaigns?token=<JWT>
+
+    Returns all campaigns associated with the account.
+
+    **Example Request**:
+
+    .. sourcecode:: http
+
+        GET /campaigns?token=eyJ0eXAiOiJKV1QiLCJhbG... HTTP/1.1
+        Host: icrowdnewswire.com/api/
+        User-Agent: curl/7.65.3
+        Accept: */*
+
+    **Example Response**:
+
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
+
+        {
+            "campaigns": [
+                {
+                    "id": "120330000039963113",
+                    "name": "My Campaign 777",
+                    "objective": "POST_ENGAGEMENT"
+                },
+                {
+                    "id": "120330000039839913",
+                    "name": "My Campaign",
+                    "objective": "POST_ENGAGEMENT"
+                },
+                {
+                    "id": "120330000039716513",
+                    "name": "My Campaign",
+                    "objective": "PAGE_LIKES"
+                },
+            ]
+        }
+
+    :query token: ``JWT`` used for authentication.
+
+
+.. http:get:: /campaigns/ids?token=<JWT>
 
     Returns ids of all campaigns associated with the account.
     These ids can be used to query individual campaigns.
@@ -244,6 +286,51 @@ Ad
             "id": "120330000039965013",
             "preview_link": "https://www.facebook.com/ads/api/preview_iframe.php?d=AQJ_J6R.."
         }
+
+.. http:get:: /ad/insights?token=<JWT>
+
+    Returns insights for an ad.
+
+    **Example Request**:
+
+    .. sourcecode:: http
+
+        GET /ad/insights?token=eyJ0eXAiOiJKV1QiLCJhbG... HTTP/1.1
+        Host: icrowdnewswire.com/api/
+        User-Agent: curl/7.65.3
+        Accept: */*
+
+    **Example Response**:
+
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
+
+        {
+            "insights": [
+                {
+                    "adset_id": "120330000039968513",
+                    "adset_name": "My Ad Set 7773",
+                    "campaign_id": "120330000039814513",
+                    "campaign_name": "My Campaign 777",
+                    "impressions": "200",
+                    "clicks": "20",
+                    "cpc": "1",
+                    "cpm": "100",
+                    "ctr": "10",
+                    "reach": "0",
+                    "frequency": "0",
+                    "spend": "20",
+                    "objective": "POST_ENGAGEMENT",
+                    "date_start": "2019-07-30",
+                    "date_stop": "2019-08-28"
+                }
+            ]
+        }
+
+    :query token: ``JWT`` used for authentication.
+    :query ad_set_id: ``AdSet`` id that was used to create the ad.
 
 
 .. toctree::

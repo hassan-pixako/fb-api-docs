@@ -32,7 +32,7 @@ Tokens
         User-Agent: curl/7.65.3
         Accept: */*
 
-    **Example Response**
+    **Example Response**:
 
     .. sourcecode:: http
 
@@ -55,7 +55,7 @@ Tokens
         User-Agent: curl/7.65.3
         Accept: */*
 
-    **Example Response**
+    **Example Response**:
 
     .. sourcecode:: http
 
@@ -86,7 +86,7 @@ Campaigns
         User-Agent: curl/7.65.3
         Accept: */*
 
-    **Example Response**
+    **Example Response**:
 
     Returns the id of the Campaign.
 
@@ -114,7 +114,7 @@ Campaigns
         User-Agent: curl/7.65.3
         Accept: */*
 
-    **Example Response**
+    **Example Response**:
 
     .. sourcecode:: http
 
@@ -159,7 +159,7 @@ Ad Sets
         User-Agent: curl/7.65.3
         Accept: */*
 
-    **Example Response**
+    **Example Response**:
 
     Returns the id of the AdSet.
 
@@ -195,7 +195,7 @@ Ad Creatives
         User-Agent: curl/7.65.3
         Accept: */*
 
-    **Example Response**
+    **Example Response**:
 
     Returns the id of the AdCreative.
 
@@ -231,7 +231,7 @@ Ad
         User-Agent: curl/7.65.3
         Accept: */*
 
-    **Example Response**
+    **Example Response**:
 
     Returns the id of the ad and a preview link.
 

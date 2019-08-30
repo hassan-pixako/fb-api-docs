@@ -221,6 +221,30 @@ Fetch **Ids**
         * List of ids. Every id points to a ``Campaign``.
 
 
+Delete
+------
+
+.. http:delete:: /campaign
+
+    Deletes a campaign.
+
+    Example Request
+        .. sourcecode:: http
+
+            DELETE /campaign HTTP/1.1
+            Host: icrowdnewswire.com/api/
+            User-Agent: curl/7.65.3
+            Accept: */*
+
+    :reqheader Content-Type: application/x-www-form-urlencoded
+    :form token: ``JSON Web Token`` to be used for authentication.
+    :form campaign_id: Id of the Campaign to be deleted.
+
+    Example Response
+        .. sourcecode:: http
+
+            HTTP/1.0 204 No Content
+
 Ad Sets
 #######
 
@@ -264,6 +288,66 @@ Create
             }
 
     :>json string id: Id of the created AdSet.
+
+
+Fetch
+-----
+
+.. http:get:: /ad/sets?token=<JWT>&campaign_id=<Campaign Id>
+
+    Fetches all AdSets for a given Campaign id.
+
+    Example Request
+        .. sourcecode:: http
+
+            GET /ad/sets?token=eyJ0eXAiOiJKV1QiLCiJ9...&campaign_id=120330000... HTTP/1.1
+            Host: icrowdnewswire.com/api/
+            User-Agent: curl/7.65.3
+            Accept: */*
+
+    :query token: ``JWT`` used for authentication.
+    :query campaign_id: ``Campaign Id`` for the required ``AdSets``.
+
+
+    Example Response
+        .. sourcecode:: http
+
+            HTTP/1.0 201 Created
+            Content-Type: application/json
+
+            [
+                {
+                    "id": "120330000039837313",
+                    "name": "My AdSet",
+                    "status": "PAUSED",
+                    "campaign": {
+                        "id": "120330000039837013"
+                    },
+                    "configured_status": "PAUSED",
+                    "created_time": "2019-08-28T15:08:31+0500",
+                    "daily_budget": "200000",
+                    "lifetime_budget": "0",
+                    "optimization_goal": "IMPRESSIONS",
+                    "promoted_object": {
+                        "page_id": "447378825409527"
+                    },
+                    "targeting": {
+                        "age_max": 65,
+                        "age_min": 18,
+                        "geo_locations": {
+                            "countries": [
+                                "US"
+                            ],
+                            "location_types": [
+                                "home"
+                            ]
+                        }
+                    },
+                    "start_time": "2019-08-28T15:08:32+0500"
+                }
+            ]
+
+    :>jsonarr object ad_set: Single AdSet.
 
 
 Ad Creatives
@@ -348,13 +432,13 @@ Create
             }
 
     :>json string id: Id of the created Ad.
-    :>json string preview_link: Preview link of the created Ad. This link is viewable in any browser.
+    :>json string preview_link: Preview link of the created Ad. This link is viewable in all browsers.
 
 
 Insights
 --------
 
-.. http:get:: /ad/insights?token=<JWT>
+.. http:get:: /ad/insights?token=<JWT>&ad_set_id=839239498234...
 
     Returns insights for an ad.
 

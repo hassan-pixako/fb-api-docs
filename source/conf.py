@@ -21,7 +21,7 @@ def setup(app):
 # -- Project information -----------------------------------------------------
 
 
-project = 'ICN FB API'
+project = 'ICN FB Marketing API'
 copyright = '2019, Hassan Tariq'
 author = 'Hassan Tariq'
 

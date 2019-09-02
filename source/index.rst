@@ -143,6 +143,46 @@ Create
 Fetch
 -----
 
+.. http:get:: /campaigns/get?token=<JWT>&campaign_id=12033000004003...
+
+    Returns all campaigns associated with the account.
+
+    Example Request
+        .. sourcecode:: http
+
+            GET /campaigns?token=eyJ0eXAiOiJKV1QiLCJhbG...&campaign_id=12033000004003... HTTP/1.1
+            Host: icrowdnewswire.com/api/
+            User-Agent: curl/7.65.3
+            Accept: */*
+
+    :query token: ``JWT`` used for authentication.
+    :query campaign_id: ``Campaign Id`` used to fetch the campaign details.
+
+    Example Response:
+        .. sourcecode:: http
+
+            HTTP/1.1 200 OK
+            Content-Type: application/json
+
+            {
+                "id": "120330000040034444",
+                "name": "My Campaign 777",
+                "account_id": "2406676702983449",
+                "status": "PAUSED",
+                "effective_status": "PAUSED",
+                "configured_status": "PAUSED",
+                "objective": "POST_ENGAGEMENT",
+                "budget_remaining": "0",
+                "buying_type": "AUCTION",
+                "created_time": "2019-08-30T09:19:09+0500",
+                "updated_time": "2019-08-30T09:19:09+0500",
+                "start_time": "1970-01-01T04:59:59+0500"
+            }
+
+
+Fetch All
+---------
+
 .. http:get:: /campaigns?token=<JWT>
 
     Returns all campaigns associated with the account.
@@ -163,25 +203,50 @@ Fetch
             HTTP/1.1 200 OK
             Content-Type: application/json
 
-            {
-                "campaigns": [
-                    {
-                        "id": "120330000039963113",
-                        "name": "My Campaign 777",
-                        "objective": "POST_ENGAGEMENT"
-                    },
-                    {
-                        "id": "120330000039839913",
-                        "name": "My Campaign",
-                        "objective": "POST_ENGAGEMENT"
-                    },
-                    {
-                        "id": "120330000039716513",
-                        "name": "My Campaign",
-                        "objective": "PAGE_LIKES"
-                    },
-                ]
-            }
+            [
+                {
+                    "id": "120330000040038443",
+                    "name": "My Campaign 777",
+                    "account_id": "2406676702343659",
+                    "status": "PAUSED",
+                    "effective_status": "PAUSED",
+                    "configured_status": "PAUSED",
+                    "objective": "POST_ENGAGEMENT",
+                    "budget_remaining": "0",
+                    "buying_type": "AUCTION",
+                    "created_time": "2019-08-30T09:19:09+0500",
+                    "updated_time": "2019-08-30T09:19:09+0500",
+                    "start_time": "1970-01-01T04:59:59+0500"
+                },
+                {
+                    "id": "12033000002342113",
+                    "name": "My Campaign 777",
+                    "account_id": "2406676502986659",
+                    "status": "PAUSED",
+                    "effective_status": "PAUSED",
+                    "configured_status": "PAUSED",
+                    "objective": "POST_ENGAGEMENT",
+                    "budget_remaining": "0",
+                    "buying_type": "AUCTION",
+                    "created_time": "2019-08-29T12:50:20+0500",
+                    "updated_time": "2019-08-29T12:50:20+0500",
+                    "start_time": "1970-01-01T04:59:59+0500"
+                },
+                {
+                    "id": "120330000055539913",
+                    "name": "My Campaign",
+                    "account_id": "2406676704486659",
+                    "status": "PAUSED",
+                    "effective_status": "PAUSED",
+                    "configured_status": "PAUSED",
+                    "objective": "POST_ENGAGEMENT",
+                    "budget_remaining": "0",
+                    "buying_type": "AUCTION",
+                    "created_time": "2019-08-28T15:13:30+0500",
+                    "updated_time": "2019-08-28T15:13:30+0500",
+                    "start_time": "2019-08-28T15:13:31+0500"
+                },
+            ]
 
 
 Fetch **Ids**
